@@ -3,7 +3,7 @@ import os
 
 import nuke
 
-from a2api.api_entity import ArcaneEntityAPI
+from a2api.api_entity import EntityAPI
 
 
 def pipeline_names():
@@ -19,7 +19,7 @@ def pipeline_names():
     return seq_name, shot_name
 
 
-def version():
+def version():  # sourcery skip: use-fstring-for-concatenation
     ''' Returns "v####" version from opened file
     Takes last numbers of file to get version
     Always return 'v####' format
@@ -39,7 +39,7 @@ def get_shot_document(pid: int):
         api (class) arcane2 api class
         pid (int) project id
     '''
-    api = ArcaneEntityAPI()
+    api = EntityAPI()
 
     # get sequence and shot index from names
     seq_name, shot_name = pipeline_names()
